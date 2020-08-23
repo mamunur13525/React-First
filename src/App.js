@@ -1,42 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
 
-  var name = {
-    first : "mamun",
-    age : 12,
-    school : "parulia ss high school"
-  }
-  var color = {
-    color: "red",
-    backgroundColor: "yellow",
-    fontWeight: "bold",
-    color:"black"
-  }
+const products = [{name: "Photoshop", price: "$200"},
+                {name: "Illustrator",price: "$120" },
+                {name: "Illustrator",price: "$120" }
+
+]
+console.log(products)
   return (
     <div className="App">
 
-        <p>HIs name is{" "+name.age}</p>
-        <Person name="rubel hossain" age = "12"></Person>
-        <Person name="alamin hossain" age = "43"></Person>
-        <Person name="mamun hossain" age = "23"></Person>
-       
-       
-     
+        <h1>My first React App</h1>
+    <Products name={products[0].name} heroin={products[0].price}></Products>
+    <Products name={products[1].name} heroin={products[1].price}></Products>
+    <Products name ={products[2].price}></Products>
     </div>
   );
 }
+function Products(props){
+  const style = {
+    border: "1px solid gray",
+    padding: "12px",
+    color: "black",
+    margin: "10px",
+    height: "300px",
+    width: "300px",
+    float: "left"
+  }
+  console.log(props)
+  return (
+ 
+    <div style={style}>
+      <h3>Name: {props.name}</h3>
+  <h1>{props.heroin}</h1>
+      <button>Buy Now</button>
+    </div>
+  )
 
-function Person(props){
-    
-
-  return (<div>
-          <h1>HI! There.?</h1>
-         
-          <h1>name is :{props.name}</h1>
-          <h2>His Age is :{props.age}</h2>
-  </div>)
 }
+
 export default App;
