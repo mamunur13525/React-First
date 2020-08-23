@@ -1,21 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-
+const name = ["mamun", "sagor", "alim", "masumAli", "maruf hossain"];
 const products = [{name: "Photoshop", price: "$200"},
-                {name: "Illustrator",price: "$120" },
-                {name: "Illustrator",price: "$120" }
+                  {name: "Illustrator",price: "$130" },
+                  {name: "adobe Premier",price: "$120" },
+                  {name: "Rush Pro",price: "$250" }
 
 ]
-console.log(products)
+
   return (
     <div className="App">
-
+      <ul>
+        {name.map(nam => <li>{nam}</li>)}
+      </ul>
         <h1>My first React App</h1>
-    <Products name={products[0].name} heroin={products[0].price}></Products>
-    <Products name={products[1].name} heroin={products[1].price}></Products>
-    <Products name ={products[2].price}></Products>
+      <ul>
+      {products.map(pro => <Products product={pro.name} price = {pro.price}></Products> )}
+      <Counter></Counter>
+      
+
+
+      </ul>
+
+
     </div>
   );
 }
@@ -33,12 +42,21 @@ function Products(props){
   return (
  
     <div style={style}>
-      <h3>Name: {props.name}</h3>
-  <h1>{props.heroin}</h1>
+      <h3>Name: {props.product}</h3>
+      <h1>Price{props.price}</h1>
       <button>Buy Now</button>
     </div>
   )
 
+}
+
+function Counter(){
+  const [count, setCount] = useState(0)
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+    </div>
+  )
 }
 
 export default App;
